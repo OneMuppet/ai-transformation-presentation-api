@@ -1,0 +1,12 @@
+### GET health
+GET https://xxxyyyzzzz.execute-api.eu-north-1.amazonaws.com/health
+
+### POST item
+POST https://xxxyyyzzzz.execute-api.eu-north-1.amazonaws.com/items
+
+{
+  "name": "My first item"
+}
+
+### GET all items
+GET https://xxxyyyzzzz.execute-api.eu-north-1.amazonaws.com/items

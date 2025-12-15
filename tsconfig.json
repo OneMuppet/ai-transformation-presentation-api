@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "exactOptionalPropertyTypes": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@/libs/*": ["./src/libs/*"],
+      "@/handlers/*": ["./src/handlers/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/tests/*": ["./tests/*"]
+    }
+  },
+  "include": ["src/**/*", "tests/**/*", "sst.config.ts"],
+  "exclude": ["node_modules", ".sst", "coverage", "out"]
+}

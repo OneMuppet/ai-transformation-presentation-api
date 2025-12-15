@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - echo Installing dependencies...
+      - npm ci
+  pre_build:
+    commands:
+      - echo Running linting...
+      - npm run lint
+      - echo Running tests...
+      - npm run test
+  build:
+    commands:
+      - echo Deploying to test environment...
+      - npm run deploy:test
+  post_build:
+    commands:
+      - echo Build completed successfully
+      - echo "Deployment URL: $API_URL"
+
+cache:
+  paths:
+    - 'node_modules/**/*'
+
+artifacts:
+  files:
+    - '**/*'
+  name: 'test-build-$(date +%Y-%m-%d)'

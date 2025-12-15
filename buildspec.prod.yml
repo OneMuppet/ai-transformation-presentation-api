@@ -1,0 +1,34 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - echo Installing dependencies...
+      - npm ci
+  pre_build:
+    commands:
+      - echo Running linting...
+      - npm run lint
+      - echo Running tests...
+      - npm run test
+      - echo Running security audit...
+      - npm audit --audit-level moderate
+  build:
+    commands:
+      - echo Deploying to production environment...
+      - npm run deploy:prod
+  post_build:
+    commands:
+      - echo Production deployment completed successfully
+      - echo "Production API URL: $API_URL"
+
+cache:
+  paths:
+    - 'node_modules/**/*'
+
+artifacts:
+  files:
+    - '**/*'
+  name: 'prod-build-$(date +%Y-%m-%d)'
