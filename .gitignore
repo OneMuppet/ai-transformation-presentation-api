@@ -17,6 +17,9 @@ build/
 !.env.prod
 !.env.example
 
+# Secrets (actual secrets file - NOT to be committed)
+scripts/.secrets.json
+
 # Logs
 logs
 *.log

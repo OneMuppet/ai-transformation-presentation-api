@@ -1,13 +1,15 @@
 {
-  "name": "sst-backend-template-test",
+  "name": "ai-presentation-api",
   "version": "1.0.0",
-  "description": "SST.dev backend template for AWS serverless applications",
+  "description": "AI Presentation API - Backend for generating and managing AI-powered presentations",
   "main": "sst.config.ts",
   "type": "module",
   "scripts": {
     "start": "sst dev",
     "deploy:test": "sst deploy --stage test",
     "deploy:prod": "sst deploy --stage prod",
+    "deploy:secrets:test": "npx tsx scripts/deploy-secrets.ts test",
+    "deploy:secrets:prod": "npx tsx scripts/deploy-secrets.ts prod",
     "remove": "sst remove",
     "test": "vitest run --typecheck",
     "test:watch": "vitest",
@@ -25,22 +27,27 @@
     "node": ">=24.0.0"
   },
   "dependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.947.0",
     "@aws-sdk/client-dynamodb": "^3.947.0",
     "@aws-sdk/client-secrets-manager": "^3.947.0",
-    "@aws-sdk/lib-dynamodb": "^3.947.0"
+    "@aws-sdk/client-sqs": "^3.947.0",
+    "@aws-sdk/lib-dynamodb": "^3.947.0",
+    "google-auth-library": "^10.5.0",
+    "openai": "^4.77.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.8",
     "@types/aws-lambda": "^8.10.159",
     "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^4.0.15",
     "aws-sdk-client-mock": "^4.1.0",
     "esbuild": "^0.27.1",
-    "vitest": "^4.0.15",
-    "vite-tsconfig-paths": "^5.1.4",
-    "@vitest/coverage-v8": "^4.0.15",
-    "sst": "^3.17.25",
+    "sst": "^3.9.28",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.0.15"
   },
   "license": "MIT"
 }
